@@ -3,7 +3,7 @@ import gspread
 from discord.ext import commands
 from datetime import datetime
 
-from constants import HEADER, gsheet
+from constants import HEADER, gsheet_token
 
 class Timesheet(commands.Cog):
     """Handles the time and connection to the google sheet"""
