@@ -26,7 +26,7 @@ async def on_ready():
     print('------')
 
 
-@bot.command()
+@bot.command(aliases=['heya'])
 async def ping(ctx):
     """Adds two numbers together."""
     await ctx.message.reply('pong')
@@ -37,7 +37,7 @@ async def goodbye(ctx):
     await ctx.send('pong!')
 
 
-@bot.command()
+@bot.command(aliases=['toggle'])
 async def toggle_cog(ctx):
     """Hooks cog on and off"""
     if bot.get_cog('Timesheet'):
