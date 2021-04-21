@@ -30,7 +30,11 @@ async def on_ready():
 async def ping(ctx):
     """Adds two numbers together."""
     await ctx.message.reply('pong')
-    await ctx.message.channel.say()
+    await ctx.send(ctx.command)
+
+@bot.command(aliases=['hello world'])
+async def goodbye(ctx):
+    await ctx.send('pong!')
 
 
 @bot.command()

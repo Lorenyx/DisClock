@@ -10,10 +10,18 @@ from .constants import HEADER_VALUES, HEADER_RANGE, gs_token
 class Timesheet(commands.Cog):
     """Handles the time and connection to the google sheet"""
 
-    @commands.command(alias='in')
-    async def clock_in(self, ctx):
+    #TODO See if space-sperated works later
+    @commands.command(aliases=['in', 'clock_in', 'out', 'clock_out'])
+    async def punch(self, ctx):
+        if ctx.command in ['in', 'clock_in']:
+            await self._attend(ctx, 'in')
+        elif ctx.command in ['out', 'clock_out']:
+            await self._attenf(ctx, 'out')
+
+
+    async def _attend(self, ctx, __dest: str):
         try:
-            # await self.insert_entry('in', ctx.author.id)
+            await self.insert_entry(__dest, ctx.author.id)
             await ctx.message.add_reaction(r'✅')
         except Exception as E:
             print(f'[-] Error: {E}')
