@@ -3,3 +3,5 @@
 service_account.json
 test.py
 */.env
+*__pycache__
+
