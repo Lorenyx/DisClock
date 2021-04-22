@@ -24,6 +24,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+    bot.add_cog(Timesheet(bot))
 
 
 @bot.command(aliases=['heya'])

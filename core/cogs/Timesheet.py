@@ -3,7 +3,7 @@ import gspread
 
 from discord.ext import commands
 from discord import Emoji
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from .constants import HEADER_VALUES, HEADER_RANGE, gs_token
 
@@ -60,6 +60,13 @@ class Timesheet(commands.Cog):
         return wks
 
 
+    async def calc_hours_worked(self, *, __days=0, __weeks=0, __months=0):
+        #TODO IDEA: allow specific time range
+        start_dt = await self.ctime()
+        end_dt = start_dt - timedelta(days=(__days + __months * 30), weeks=__weeks)
+        
+
+
     async def insert_entry(self, attendance, user):
         "Appends entry to monthly log"
         wks = await self.get_wks()
@@ -71,3 +78,5 @@ class Timesheet(commands.Cog):
             user.name,
             user.id
         ])
+
+    
