@@ -5,4 +5,6 @@ gc_token = gspread.service_account(filename='service_account.json')
 gs_token = gc_token.open('Useful Coin Timesheet')
 
 HEADER_VALUES = ['Day', 'Time', 'In/Out', 'Name', 'ID']
-HEADER_RANGE = 'A1:D1'
+DATE_F = "%m-%d"
+TIME_F = "%H:%M:%S"
+WKS_TITLE_F = "%m-%Y"
